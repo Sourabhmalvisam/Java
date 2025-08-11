@@ -1,0 +1,687 @@
+<html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Java</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: nowrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: nowrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><h1>Java Memory Management and Garbage Collection</h1><h2 class="" id="235b255d-72ff-80d1-a30d-fce3b6c088ca">✅ Java Memory Management</h2><p class="" id="235b255d-72ff-80ab-9b70-f2834f9bd0cd">Java uses <strong>automatic memory management</strong> handled by the <strong>JVM</strong> using <strong>Garbage Collector (GC)</strong>.</p><hr id="235b255d-72ff-8030-a4ce-f10803712c18"/><h2 class="" id="235b255d-72ff-80c1-b0c1-da6131415dd4">🔷 Types of Memory in Java</h2><h3 class="" id="235b255d-72ff-8042-856c-e0c8bb2733f1">✅ 1. <strong>Stack Memory</strong></h3><ul class="bulleted-list" id="235b255d-72ff-808e-9443-c1347b32d564"><li style="list-style-type:disc">Stores:<ul class="bulleted-list" id="235b255d-72ff-80e6-8879-ce4978cd18eb"><li style="list-style-type:circle"><strong>Primitive data types</strong></li></ul><ul class="bulleted-list" id="235b255d-72ff-8083-95e7-f5e8088312bb"><li style="list-style-type:circle"><strong>References</strong> to objects in heap</li></ul><ul class="bulleted-list" id="235b255d-72ff-80b9-a838-fbc9aa3d1fff"><li style="list-style-type:circle"><strong>Method call frames</strong></li></ul></li></ul><ul class="bulleted-list" id="235b255d-72ff-8091-8073-ce851a1c06e9"><li style="list-style-type:disc">Each <strong>thread</strong> has its <strong>own</strong> stack.</li></ul><ul class="bulleted-list" id="235b255d-72ff-80da-872d-d29391a968d5"><li style="list-style-type:disc"><strong>LIFO order</strong> (Last-In-First-Out)</li></ul><ul class="bulleted-list" id="235b255d-72ff-80e0-8d5f-ea711d0364a5"><li style="list-style-type:disc">When full: <code>java.lang.StackOverflowError</code></li></ul><p class="" id="235b255d-72ff-8020-8ee3-ffb5c5ae845b">🧠 <em>Scope-based deletion</em>: Variables are removed when they go out of scope.</p><hr id="235b255d-72ff-8043-b02f-e707692aa9f3"/><h3 class="" id="235b255d-72ff-8013-b1de-f0433910cb12">✅ 2. <strong>Heap Memory</strong></h3><ul class="bulleted-list" id="235b255d-72ff-80b9-b512-f56063cb0112"><li style="list-style-type:disc">Stores:<ul class="bulleted-list" id="235b255d-72ff-8003-9065-ed1a190ce3d2"><li style="list-style-type:circle"><strong>Objects</strong></li></ul><ul class="bulleted-list" id="235b255d-72ff-8032-87a5-eec231134eb2"><li style="list-style-type:circle"><strong>Class instances</strong></li></ul><ul class="bulleted-list" id="235b255d-72ff-80f7-b80c-cde61ebc4c2f"><li style="list-style-type:circle"><strong>Arrays</strong></li></ul></li></ul><ul class="bulleted-list" id="235b255d-72ff-807a-84a4-e71d8ee37923"><li style="list-style-type:disc">Shared among all threads.</li></ul><ul class="bulleted-list" id="235b255d-72ff-80ce-a7ce-d5c6bccccf4f"><li style="list-style-type:disc">Managed by <strong>Garbage Collector (GC)</strong></li></ul><ul class="bulleted-list" id="235b255d-72ff-80cd-928c-fea79da25fc8"><li style="list-style-type:disc">Organized into <strong>Young Gen</strong>, <strong>Old Gen</strong>, and <strong>Metaspace</strong>.</li></ul><hr id="235b255d-72ff-8050-8231-cfa7364b0921"/><h2 class="" id="235b255d-72ff-8035-9f81-cd52a5673c67">🔷 Heap Memory Breakdown</h2><h3 class="" id="235b255d-72ff-80b7-9775-ddae07781468">🧠 Memory Areas:</h3><table class="simple-table" id="235b255d-72ff-80df-a8d6-d923e545129d"><thead class="simple-table-header"><tr id="235b255d-72ff-80b9-9b26-e5499f494f64"><th class="simple-table-header-color simple-table-header" id="axYL">Section</th><th class="simple-table-header-color simple-table-header" id="xCvB">Purpose</th></tr></thead><tbody><tr id="235b255d-72ff-809d-8c35-f0a38b4a3835"><td class="" id="axYL"><strong>Young Generation</strong></td><td class="" id="xCvB">Newly created objects, includes Eden + Survivor (S0/S1)</td></tr><tr id="235b255d-72ff-8014-a7d5-ff20e2081337"><td class="" id="axYL"><strong>Old Generation</strong></td><td class="" id="xCvB">Long-living, aged objects</td></tr><tr id="235b255d-72ff-8024-b14a-fbe5b3159414"><td class="" id="axYL"><strong>Metaspace</strong></td><td class="" id="xCvB">Class metadata, constants, static data (post-Java 8)</td></tr></tbody></table><hr id="235b255d-72ff-805d-9dc1-d5f812d0393c"/><h2 class="" id="235b255d-72ff-8071-8a64-cb44a6de509a">🔷 Object Lifecycle (Garbage Collection)</h2><ol class="numbered-list" id="235b255d-72ff-80a5-9b16-ebf847331ec2" start="1" type="1"><li><strong>New object → Eden</strong></li></ol><ol class="numbered-list" id="235b255d-72ff-8070-a235-c86ab2c87f8f" start="2" type="1"><li>GC runs → Moves surviving objects to <strong>S0</strong></li></ol><ol class="numbered-list" id="235b255d-72ff-80ad-8ec5-f7dd41b05eab" start="3" type="1"><li>On next GC → from S0 to <strong>S1</strong> and vice versa</li></ol><ol class="numbered-list" id="235b255d-72ff-80fd-8551-fef84d27120e" start="4" type="1"><li>If object survives multiple GC cycles (age threshold) → moves to <strong>Old Generation</strong></li></ol><hr id="235b255d-72ff-80fa-87e6-fbd60833ff4c"/><h3 class="" id="235b255d-72ff-8018-a0e0-d846426adcaf">🔷 Reference Types</h3><table class="simple-table" id="235b255d-72ff-8005-a5ac-d46472ca39f0"><thead class="simple-table-header"><tr id="235b255d-72ff-80ea-be3a-dfd9af5fbd42"><th class="simple-table-header-color simple-table-header" id="{AVT">Type</th><th class="simple-table-header-color simple-table-header" id="pQ@P">Behavior</th></tr></thead><tbody><tr id="235b255d-72ff-8033-bd71-d3503953e8bf"><td class="" id="{AVT"><strong>Strong</strong></td><td class="" id="pQ@P">Default. GC never deletes until reference removed</td></tr><tr id="235b255d-72ff-80cb-9325-f3efff8ac0b0"><td class="" id="{AVT"><strong>Weak</strong></td><td class="" id="pQ@P">GC <strong>may</strong> delete even if referenced</td></tr><tr id="235b255d-72ff-80c7-aec7-c6048ace427b"><td class="" id="{AVT"><strong>Soft</strong></td><td class="" id="pQ@P">Deleted <strong>only when memory low</strong></td></tr><tr id="235b255d-72ff-8039-8fb1-e7d75f9717e6"><td class="" id="{AVT"><strong>Phantom</strong></td><td class="" id="pQ@P">Used for cleanup post-finalization (not in PDF, but often asked)</td></tr></tbody></table><hr id="235b255d-72ff-804e-8344-f33043abc4cf"/><h2 class="" id="235b255d-72ff-8050-be83-f2652c961f1e">✅ Manual GC Trigger (Not Guaranteed)</h2><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8044-98ec-ef928831ac44"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">System.gc(); // Hint to JVM, not guaranteed</code></pre><hr id="235b255d-72ff-8063-a230-dfed1ccf95c9"/><h2 class="" id="235b255d-72ff-800f-9fcf-cad314346ee8">🔷 GC Algorithms</h2><table class="simple-table" id="235b255d-72ff-802b-a8ea-dbe9ace7f8d6"><thead class="simple-table-header"><tr id="235b255d-72ff-8099-8396-e8d3009f32bf"><th class="simple-table-header-color simple-table-header" id=";wXs">GC Type</th><th class="simple-table-header-color simple-table-header" id="[&lt;mR">Description</th></tr></thead><tbody><tr id="235b255d-72ff-80c1-ad1e-f4684dd0ef8f"><td class="" id=";wXs"><strong>Serial GC</strong></td><td class="" id="[&lt;mR">Single-threaded GC (slow, used in client devices)</td></tr><tr id="235b255d-72ff-80ae-bcfe-d94da0ba793b"><td class="" id=";wXs"><strong>Parallel GC</strong></td><td class="" id="[&lt;mR">Multi-threaded, pauses application threads during GC (used in Java 8)</td></tr><tr id="235b255d-72ff-80c9-842d-cd93ff942b58"><td class="" id=";wXs"><strong>CMS (Concurrent Mark &amp; Sweep)</strong></td><td class="" id="[&lt;mR">Concurrent GC, app threads mostly continue running</td></tr><tr id="235b255d-72ff-806e-9d59-e0163135bb1d"><td class="" id=";wXs"><strong>G1 GC</strong></td><td class="" id="[&lt;mR">Replaces CMS, handles both young + old generation, supports <strong>compaction</strong> and <strong>minimal pause time</strong></td></tr><tr id="235b255d-72ff-80af-9c94-c633fd3231b9"><td class="" id=";wXs"><strong>ZGC/Shenandoah (latest)</strong></td><td class="" id="[&lt;mR">Ultra-low pause GC for large heaps</td></tr></tbody></table><hr id="235b255d-72ff-8023-a49f-cdef50726ab1"/><h3 class="" id="235b255d-72ff-80d0-9da5-d3a0a7c09a29">🔷 Mark &amp; Sweep</h3><ul class="bulleted-list" id="235b255d-72ff-808f-ad17-db1c06fdc153"><li style="list-style-type:disc"><strong>Mark</strong> phase: Mark live (reachable) objects.</li></ul><ul class="bulleted-list" id="235b255d-72ff-80e4-9f70-de4e891ca90b"><li style="list-style-type:disc"><strong>Sweep</strong> phase: Remove unmarked (unreachable) objects.</li></ul><ul class="bulleted-list" id="235b255d-72ff-8040-89ea-fa0cfeeb18df"><li style="list-style-type:disc"><strong>Compaction</strong>: Moves remaining objects to make free memory contiguous.</li></ul><hr id="235b255d-72ff-80e6-9765-f1d9fb797a5e"/><h2 class="" id="235b255d-72ff-8016-836f-d15444d41a5c">✅ Metaspace (Post Java 8)</h2><ul class="bulleted-list" id="235b255d-72ff-8008-9cdc-cb8135f36c93"><li style="list-style-type:disc">Stores class definitions, static variables, constants.</li></ul><ul class="bulleted-list" id="235b255d-72ff-8070-bcfb-fc098f2276c6"><li style="list-style-type:disc">Replaces <strong>PermGen</strong> (which had fixed size and was prone to <code>OutOfMemoryError</code>).</li></ul><ul class="bulleted-list" id="235b255d-72ff-8039-baf9-d9528a9fe63e"><li style="list-style-type:disc"><strong>Metaspace is dynamically resizable</strong>.</li></ul><hr id="235b255d-72ff-80ad-8a99-c7757c49d6e9"/><h2 class="" id="235b255d-72ff-80f6-a243-e0757859ddfe">🔷 Example Walkthrough (Interview Ready)</h2><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8099-a6a7-d13120db0420"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public class Person {
+    int age = 10;
+    String name = "John";
+}
+
+public static void main(String[] args) {
+    Person p = new Person();
+}</code></pre><p class="" id="235b255d-72ff-8025-a454-e5e4eed24a9d">🧠 In memory:</p><table class="simple-table" id="235b255d-72ff-8005-978e-cddad5fc4aba"><thead class="simple-table-header"><tr id="235b255d-72ff-80b4-b704-c0d7cb69f31b"><th class="simple-table-header-color simple-table-header" id="l|jN">Stack</th><th class="simple-table-header-color simple-table-header" id="xWwc">Heap</th><th class="simple-table-header-color simple-table-header" id="oEq\">String Constant Pool</th></tr></thead><tbody><tr id="235b255d-72ff-80a7-932f-d3bda6920ceb"><td class="" id="l|jN">p → reference</td><td class="" id="xWwc">Person object: age=10</td><td class="" id="oEq\">"John"</td></tr><tr id="235b255d-72ff-80bc-ad46-e49ecc368066"><td class="" id="l|jN"></td><td class="" id="xWwc">name → SCP["John"]</td><td class="" id="oEq\"></td></tr></tbody></table><p class="" id="235b255d-72ff-8011-a91b-d9b3e3c70575">When <code>main()</code> ends:</p><ul class="bulleted-list" id="235b255d-72ff-808c-8a06-d968fefb8909"><li style="list-style-type:disc">Stack is cleared</li></ul><ul class="bulleted-list" id="235b255d-72ff-80e8-98a8-ccc71987d40c"><li style="list-style-type:disc">GC deletes the <code>Person</code> object (if no other reference)</li></ul><hr id="235b255d-72ff-8068-9de0-de8fd3255949"/><h2 class="" id="235b255d-72ff-80ac-89ad-f461bddf36ee">🔷 Bonus: Key Interview Questions</h2><ol class="numbered-list" id="235b255d-72ff-8018-94ec-fbb9136078c0" start="1" type="1"><li>What’s the difference between stack and heap?</li></ol><ol class="numbered-list" id="235b255d-72ff-8078-a224-c5d5f3a1fb75" start="2" type="1"><li>How does Java manage memory automatically?</li></ol><ol class="numbered-list" id="235b255d-72ff-8044-a061-f4779bd18f14" start="3" type="1"><li>What is GC? When does it run?</li></ol><ol class="numbered-list" id="235b255d-72ff-80b7-966a-f8426247b7d3" start="4" type="1"><li>What are strong/weak/soft references?</li></ol><ol class="numbered-list" id="235b255d-72ff-8003-8991-c30e3aae54ef" start="5" type="1"><li>What is the purpose of survivor spaces in the heap?</li></ol><ol class="numbered-list" id="235b255d-72ff-8024-86d5-c2f8b74e3319" start="6" type="1"><li>How is Metaspace different from PermGen?</li></ol><ol class="numbered-list" id="235b255d-72ff-8066-9633-cca937bdc3c0" start="7" type="1"><li>How does object promotion work in the heap?</li></ol><ol class="numbered-list" id="235b255d-72ff-8058-b4e2-dfebced809a3" start="8" type="1"><li>What is a minor GC vs major GC?</li></ol><ol class="numbered-list" id="235b255d-72ff-80b6-ba54-c747172482a6" start="9" type="1"><li>How can GC pauses affect application performance?</li></ol><ol class="numbered-list" id="235b255d-72ff-8038-8207-ff8663079a82" start="10" type="1"><li>Which GC algorithm is used by default in Java 8 and Java 11?</li></ol></body></html>

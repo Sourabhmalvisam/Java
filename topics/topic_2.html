@@ -1,0 +1,680 @@
+<html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Java</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: nowrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: nowrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><h1>How Java Program Works and its 3 Important Components (JVM, JRE and JDK)</h1><h2 class="" id="235b255d-72ff-80a9-8d16-c8aa742f9764">✅ JAVA Platform Basics: JDK, JRE, JVM</h2><p class="" id="235b255d-72ff-8064-96bb-d894a9e0af8d">These are the <strong>three pillars</strong> of the Java platform. Every Java developer must understand them clearly—this is often asked in interviews.</p><hr id="235b255d-72ff-80d7-8bc3-d907632024b8"/><h3 class="" id="235b255d-72ff-80dd-a382-da32001f14d1">🔷 1. <strong>JVM (Java Virtual Machine)</strong></h3><h3 class="" id="235b255d-72ff-80b1-9f75-d2beb31ea637">🔹 What is it?</h3><ul class="bulleted-list" id="235b255d-72ff-80ae-9d7b-c0e012fdba1a"><li style="list-style-type:disc">It is an <strong>abstract machine</strong> (doesn't physically exist).</li></ul><ul class="bulleted-list" id="235b255d-72ff-803c-aa4e-e3a71390de5e"><li style="list-style-type:disc">Responsible for <strong>executing Java bytecode</strong> on any platform.</li></ul><ul class="bulleted-list" id="235b255d-72ff-80ce-a673-dc07b9a8c3c3"><li style="list-style-type:disc">Converts <mark class="highlight-red"><strong>.class (bytecode)</strong></mark> into <mark class="highlight-red"><strong>machine</strong></mark><strong>-specific </strong><mark class="highlight-red"><strong>code</strong></mark>.</li></ul><h3 class="" id="235b255d-72ff-8073-8cf0-cdc62922ca40">🔹 Key Features:</h3><ul class="bulleted-list" id="235b255d-72ff-801b-a7e1-ef4ef53e8f75"><li style="list-style-type:disc">Platform <strong>dependent</strong> (Mac JVM ≠ Windows JVM)</li></ul><ul class="bulleted-list" id="235b255d-72ff-806f-8a9e-c0ce12c4f8bd"><li style="list-style-type:disc"><strong>Bytecode</strong> is platform-independent, but JVM is not.</li></ul><ul class="bulleted-list" id="235b255d-72ff-8036-ae47-cacd963e8426"><li style="list-style-type:disc">JVM Includes <strong>JIT Compiler</strong>:<ul class="bulleted-list" id="235b255d-72ff-80d6-be51-d8bb40676b1a"><li style="list-style-type:circle">JIT = <em>Just-In-Time Compiler</em></li></ul><ul class="bulleted-list" id="235b255d-72ff-80ab-963b-c621a33f8ee4"><li style="list-style-type:circle">Optimizes bytecode to machine code at runtime.</li></ul></li></ul><h3 class="" id="235b255d-72ff-8050-9445-ed4400b37230">🔹 Diagram:</h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8077-988a-d9516b5a796e"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Java Code (.java) --&gt; Compiler --&gt; Bytecode (.class) --&gt; JVM --&gt; Machine Code --&gt; Output</code></pre><hr id="235b255d-72ff-8049-bedc-e51f0eed758f"/><h3 class="" id="235b255d-72ff-803e-9ced-cd71963651f0">🔷 2. <strong>JRE (Java Runtime Environment)</strong></h3><h3 class="" id="235b255d-72ff-808a-a896-c7e97f57ff22">🔹 What is it?</h3><ul class="bulleted-list" id="235b255d-72ff-80ac-9159-cf99d2240a38"><li style="list-style-type:disc">Provides the <strong>runtime environment</strong> to run Java programs.</li></ul><ul class="bulleted-list" id="235b255d-72ff-80f9-8700-e2a4cfb7cb15"><li style="list-style-type:disc">Contains:<ul class="bulleted-list" id="235b255d-72ff-8063-b076-d573aa8ead16"><li style="list-style-type:circle"><strong>JVM</strong></li></ul><ul class="bulleted-list" id="235b255d-72ff-805e-a78f-edb808588cad"><li style="list-style-type:circle"><strong>Core libraries</strong> (Java APIs like <code>java.lang</code>, <code>java.util</code>)</li></ul></li></ul><h3 class="" id="235b255d-72ff-8027-8c5c-e4c45733f4c7">🔹 Limitation:</h3><ul class="bulleted-list" id="235b255d-72ff-80b4-a5a3-d5d6f9d4cd3e"><li style="list-style-type:disc">JRE allows you to <strong>run</strong> Java programs but you <strong>cannot develop</strong> or compile code with it.</li></ul><h3 class="" id="235b255d-72ff-80c8-912c-f8dc85db1cc9">🔹 Usage:</h3><ul class="bulleted-list" id="235b255d-72ff-802d-ac7d-c546ed626b33"><li style="list-style-type:disc">End-users who want to run Java apps need only JRE.</li></ul><hr id="235b255d-72ff-8030-9d32-f1d269919eb1"/><h3 class="" id="235b255d-72ff-80b5-8c46-dffd26ca1026">🔷 3. <strong>JDK (Java Development Kit)</strong></h3><h3 class="" id="235b255d-72ff-806f-ab14-cfff0fa5f88c">🔹 What is it?</h3><ul class="bulleted-list" id="235b255d-72ff-80a9-bff7-d61bd7ed658e"><li style="list-style-type:disc">Complete development kit for Java developers.</li></ul><ul class="bulleted-list" id="235b255d-72ff-80a8-b197-c2d290bec959"><li style="list-style-type:disc">Includes:<ul class="bulleted-list" id="235b255d-72ff-8061-bb87-ce2ac397a441"><li style="list-style-type:circle"><strong>JRE (JVM + libraries)</strong></li></ul><ul class="bulleted-list" id="235b255d-72ff-8045-bf73-e0f32456435d"><li style="list-style-type:circle"><strong>Compiler</strong> (<code>javac</code>)</li></ul><ul class="bulleted-list" id="235b255d-72ff-80a3-8009-dce8c6d5a12e"><li style="list-style-type:circle"><strong>Debugger</strong>, <strong>tools</strong>, <strong>documentation</strong></li></ul></li></ul><h3 class="" id="235b255d-72ff-80ce-9d3a-ed05afcf4c07">🔹 Diagram:</h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-801f-8eeb-f91ece837183"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">JDK = JRE (JVM + Libraries) + Compiler + Development Tools</code></pre><h3 class="" id="235b255d-72ff-80c1-a244-df03d39ad574">🔹 Usage:</h3><ul class="bulleted-list" id="235b255d-72ff-80a5-aae7-c785eebb2832"><li style="list-style-type:disc">Required for <strong>developing, compiling, debugging</strong> Java programs.</li></ul><hr id="235b255d-72ff-8081-a205-d4c6112809ec"/><h3 class="" id="235b255d-72ff-8028-8267-cf1632d42108">🔷 Relationship Summary</h3><table class="simple-table" id="235b255d-72ff-803c-b11f-ed96d99781f7"><thead class="simple-table-header"><tr id="235b255d-72ff-80ac-88d7-ff5860f3577d"><th class="simple-table-header-color simple-table-header" id="Pr&lt;X">Component</th><th class="simple-table-header-color simple-table-header" id="kB[P">Includes</th><th class="simple-table-header-color simple-table-header" id="eFJE">Purpose</th></tr></thead><tbody><tr id="235b255d-72ff-80e3-8840-ce249230ac97"><td class="" id="Pr&lt;X">JVM</td><td class="" id="kB[P">Core runtime engine</td><td class="" id="eFJE">Runs bytecode</td></tr><tr id="235b255d-72ff-80aa-9b90-c94717a8416e"><td class="" id="Pr&lt;X">JRE</td><td class="" id="kB[P">JVM + Libraries</td><td class="" id="eFJE">Runs Java programs</td></tr><tr id="235b255d-72ff-8031-9609-db54d15b0316"><td class="" id="Pr&lt;X">JDK</td><td class="" id="kB[P">JRE + Dev Tools</td><td class="" id="eFJE">Develops and runs Java programs</td></tr></tbody></table><hr id="235b255d-72ff-8009-a5ff-f4dbb5ac4172"/><h3 class="" id="235b255d-72ff-80aa-8688-fb32800275c6">🔷 JDK Variants (As per PDF)</h3><ul class="bulleted-list" id="235b255d-72ff-8007-b914-fac4e50033eb"><li style="list-style-type:disc"><strong>JSE (Java Standard Edition)</strong>:<ul class="bulleted-list" id="235b255d-72ff-80ad-92b9-f7542dcba9c2"><li style="list-style-type:circle">Core Java: OOPs, collections, multithreading, etc.</li></ul></li></ul><ul class="bulleted-list" id="235b255d-72ff-804d-9c12-e4e4161cd270"><li style="list-style-type:disc"><strong>JEE (Java Enterprise Edition)</strong>:<ul class="bulleted-list" id="235b255d-72ff-8069-acbd-ed76b59c85a0"><li style="list-style-type:circle">Web applications: Servlets, JSP, EJB, APIs</li></ul></li></ul><ul class="bulleted-list" id="235b255d-72ff-8097-b4a6-d69561ca7a37"><li style="list-style-type:disc"><strong>JME (Java Micro Edition)</strong>:<ul class="bulleted-list" id="235b255d-72ff-8039-994d-cb00c4976358"><li style="list-style-type:circle">Mobile and embedded devices</li></ul></li></ul><p class="" id="235b255d-72ff-8026-836f-ff83333f3a66">🧠 <strong>Interview Tip</strong>: Be ready to explain what happens behind the scenes when you run a Java program:</p><blockquote class="" id="235b255d-72ff-80af-a67f-dee43996d07a">Compiler → Bytecode → JVM → Machine Code</blockquote><hr id="235b255d-72ff-8054-83ad-c0f7984a0db4"/><h3 class="" id="235b255d-72ff-8020-a018-d5a9f822eac2">🧠 Common Interview Questions</h3><ol class="numbered-list" id="235b255d-72ff-8001-bb82-cdae20f79853" start="1" type="1"><li>What is the difference between JDK, JRE, and JVM?</li></ol><ol class="numbered-list" id="235b255d-72ff-8062-b07e-cda44cc27ad1" start="2" type="1"><li>Is JVM platform-independent?</li></ol><ol class="numbered-list" id="235b255d-72ff-8006-a370-d082b9ffbcb8" start="3" type="1"><li>What is bytecode? Why is Java called platform-independent?</li></ol><ol class="numbered-list" id="235b255d-72ff-802f-b9e3-f6f256c9d339" start="4" type="1"><li>What is the role of JIT in JVM?</li></ol><ol class="numbered-list" id="235b255d-72ff-8070-a628-cc08b1267f57" start="5" type="1"><li>Can I run a Java program with only JRE?</li></ol></body></html>

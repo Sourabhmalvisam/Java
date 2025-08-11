@@ -1,0 +1,683 @@
+<html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Java</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: nowrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: nowrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><h1>Java Variables - Part1 | Primitive Data Types</h1><h2 class="" id="235b255d-72ff-80eb-aba9-f3135d079c34">✅ Java Primitive Data Types (Interview-Ready Notes)</h2><h3 class="" id="235b255d-72ff-8053-b3bd-c94257a0b782">🔷 1. <strong>What is a Variable?</strong></h3><ul class="bulleted-list" id="235b255d-72ff-80c4-856f-c938718b9571"><li style="list-style-type:disc">A <strong>variable</strong> is a container to store data.</li></ul><ul class="bulleted-list" id="235b255d-72ff-8036-aeb3-e0ddf7c05e46"><li style="list-style-type:disc">Declared using:</li></ul><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-80bb-b5a4-c272778cf5fa"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">datatype variableName = value;</code></pre><ul class="bulleted-list" id="235b255d-72ff-8023-9bf8-c3ec4999afdc"><li style="list-style-type:disc">Java is:<ul class="bulleted-list" id="235b255d-72ff-809a-aca2-ee7eb5ac4496"><li style="list-style-type:circle"><strong>Statically typed</strong> – Type must be declared.</li></ul><ul class="bulleted-list" id="235b255d-72ff-80d9-897b-ff17e8b7aaa9"><li style="list-style-type:circle"><strong>Strongly typed</strong> – No implicit type conversion if it causes loss of precision.</li></ul></li></ul><hr id="235b255d-72ff-803e-b5cd-f30db40decd7"/><h2 class="" id="235b255d-72ff-806e-8916-c67ec9426ef4">🔷 2. <strong>Variable Naming Rules</strong></h2><ul class="bulleted-list" id="235b255d-72ff-8062-a59b-fada8a544a42"><li style="list-style-type:disc"><strong>Case-sensitive</strong></li></ul><ul class="bulleted-list" id="235b255d-72ff-802b-8841-c5d1311cbf0c"><li style="list-style-type:disc">Can include letters, digits, <code>$</code>, <code>_</code> (not start with digits)</li></ul><ul class="bulleted-list" id="235b255d-72ff-8038-82d2-d9901ce1cde6"><li style="list-style-type:disc">Must <strong>not</strong> use Java reserved keywords (e.g., <code>class</code>, <code>int</code>)</li></ul><ul class="bulleted-list" id="235b255d-72ff-801e-8e8c-ffce626c6dee"><li style="list-style-type:disc">Constants: ALL_CAPS (e.g., <code>PI</code>, <code>MAX_SIZE</code>)</li></ul><ul class="bulleted-list" id="235b255d-72ff-804d-add4-ddb9f654ef3d"><li style="list-style-type:disc">Variables: camelCase (e.g., <code>employeeId</code>)</li></ul><hr id="235b255d-72ff-801b-acde-c604f0e802bc"/><h3 class="" id="235b255d-72ff-802a-bb2d-d013aef9f90e">🔷 3. <strong>Primitive vs Non-Primitive Types</strong></h3><table class="simple-table" id="235b255d-72ff-80ec-9336-e6dfcdb8e157"><thead class="simple-table-header"><tr id="235b255d-72ff-8088-b578-f17e7e831691"><th class="simple-table-header-color simple-table-header" id="Nqyn">Primitive Types</th><th class="simple-table-header-color simple-table-header" id="o]oq">Non-Primitive Types</th></tr></thead><tbody><tr id="235b255d-72ff-80c0-ab5d-d1ce121abf93"><td class="" id="Nqyn"><code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code></td><td class="" id="o]oq">Arrays</td></tr><tr id="235b255d-72ff-806c-bf7d-fc233a6418f8"><td class="" id="Nqyn"><code>float</code>, <code>double</code></td><td class="" id="o]oq">Strings</td></tr><tr id="235b255d-72ff-80ca-b742-c6066b774eca"><td class="" id="Nqyn"><code>char</code>, <code>boolean</code></td><td class="" id="o]oq">Objects, Classes, Interfaces</td></tr></tbody></table><hr id="235b255d-72ff-8006-a60a-e794a320a39a"/><h2 class="" id="235b255d-72ff-80e2-b6cc-f476b018dee5">🔷 4. <strong>Java Primitive Types (8 total)</strong></h2><table class="simple-table" id="235b255d-72ff-8026-b643-d352e5a6a0f0"><thead class="simple-table-header"><tr id="235b255d-72ff-8031-a960-d01fda769ddf"><th class="simple-table-header-color simple-table-header" id="]kIu">Type</th><th class="simple-table-header-color simple-table-header" id="RV&gt;z">Size</th><th class="simple-table-header-color simple-table-header" id="@ZyF">Default</th><th class="simple-table-header-color simple-table-header" id="&lt;UyI">Range</th></tr></thead><tbody><tr id="235b255d-72ff-80d2-8718-fd21a170313b"><td class="" id="]kIu"><code>byte</code></td><td class="" id="RV&gt;z">1 byte</td><td class="" id="@ZyF">0</td><td class="" id="&lt;UyI">-128 to 127</td></tr><tr id="235b255d-72ff-8026-9d63-ebae0f1fa772"><td class="" id="]kIu"><code>short</code></td><td class="" id="RV&gt;z">2 bytes</td><td class="" id="@ZyF">0</td><td class="" id="&lt;UyI">-32,768 to 32,767</td></tr><tr id="235b255d-72ff-80f9-a246-e192a23a1ee2"><td class="" id="]kIu"><code>int</code></td><td class="" id="RV&gt;z">4 bytes</td><td class="" id="@ZyF">0</td><td class="" id="&lt;UyI">-2³¹ to 2³¹-1</td></tr><tr id="235b255d-72ff-805a-a47d-e848f8a47348"><td class="" id="]kIu"><code>long</code></td><td class="" id="RV&gt;z">8 bytes</td><td class="" id="@ZyF">0L</td><td class="" id="&lt;UyI">-2⁶³ to 2⁶³-1</td></tr><tr id="235b255d-72ff-80ab-99f4-cc3aeb04558d"><td class="" id="]kIu"><code>float</code></td><td class="" id="RV&gt;z">4 bytes</td><td class="" id="@ZyF">0.0f</td><td class="" id="&lt;UyI">~±3.4e38 (IEEE 754)</td></tr><tr id="235b255d-72ff-8079-9286-decc289a8580"><td class="" id="]kIu"><code>double</code></td><td class="" id="RV&gt;z">8 bytes</td><td class="" id="@ZyF">0.0d</td><td class="" id="&lt;UyI">~±1.8e308 (IEEE 754)</td></tr><tr id="235b255d-72ff-8003-8603-e779df71deb3"><td class="" id="]kIu"><code>char</code></td><td class="" id="RV&gt;z">2 bytes</td><td class="" id="@ZyF">'\u0000'</td><td class="" id="&lt;UyI">0 to 65535 (Unicode)</td></tr><tr id="235b255d-72ff-8015-883c-d9fe4e984842"><td class="" id="]kIu"><code>boolean</code></td><td class="" id="RV&gt;z">1 bit</td><td class="" id="@ZyF">false</td><td class="" id="&lt;UyI">true/false</td></tr></tbody></table><hr id="235b255d-72ff-8076-833f-fa255aee1a8e"/><h2 class="" id="235b255d-72ff-80ce-b593-fec9dd2be51e">🔷 5. <strong>Type Conversion</strong></h2><h3 class="" id="235b255d-72ff-8097-a652-d1b0615bf785">🔸 Widening (Implicit)</h3><ul class="bulleted-list" id="235b255d-72ff-8011-b8e1-cb746622c2cb"><li style="list-style-type:disc">Small to large type (safe)</li></ul><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8010-8861-fe870f0e9407"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">int a = 10;
+long b = a; // auto-converted</code></pre><h3 class="" id="235b255d-72ff-80a2-90df-e8eec45dea92">🔸 Narrowing (Explicit/Manual)</h3><ul class="bulleted-list" id="235b255d-72ff-8050-98b9-d8e909650720"><li style="list-style-type:disc">Large to small type (data loss possible)</li></ul><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8037-b1a4-f42d9ef98221"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">int x = 130;
+byte y = (byte) x; // y becomes -126</code></pre><h3 class="" id="235b255d-72ff-8059-b152-ce9600f9f148">🔸 Promotion in Expressions</h3><ul class="bulleted-list" id="235b255d-72ff-80d4-b20a-d22f7c1fe55f"><li style="list-style-type:disc">Smaller types (<code>byte</code>, <code>short</code>) are <strong>promoted to int</strong> in expressions.</li></ul><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-806f-b470-f5621cb3e890"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">byte a = 100, b = 27;
+byte sum = (byte) (a + b); // must cast explicitly</code></pre><p class="" id="235b255d-72ff-8039-ac5a-decf5d13637f">🧠 <strong>Interview Tip</strong>: Always expect questions on implicit vs explicit type casting and data loss scenarios.</p><hr id="235b255d-72ff-80fb-9f8a-e316345d088c"/><h2 class="" id="235b255d-72ff-80a5-a054-c46084a790ad">🔷 6. <strong>Kinds of Variables</strong></h2><table class="simple-table" id="235b255d-72ff-8016-9a5e-f6d212610593"><thead class="simple-table-header"><tr id="235b255d-72ff-805b-a016-c5ed4357c79c"><th class="simple-table-header-color simple-table-header" id="`Hap">Type</th><th class="simple-table-header-color simple-table-header" id="V`AI">Scope</th><th class="simple-table-header-color simple-table-header" id="WtPn">Lifecycle</th></tr></thead><tbody><tr id="235b255d-72ff-80af-8724-fa9223190aa2"><td class="" id="`Hap"><strong>Instance Variable</strong></td><td class="" id="V`AI">Declared in a class, not static</td><td class="" id="WtPn">With object</td></tr><tr id="235b255d-72ff-80f9-9442-f55266991785"><td class="" id="`Hap"><strong>Static Variable</strong></td><td class="" id="V`AI">Shared among all objects</td><td class="" id="WtPn">Class-level</td></tr><tr id="235b255d-72ff-8002-aaa9-ea277adf6095"><td class="" id="`Hap"><strong>Local Variable</strong></td><td class="" id="V`AI">Inside a method</td><td class="" id="WtPn">Limited to method</td></tr><tr id="235b255d-72ff-8078-8b36-dec669e07137"><td class="" id="`Hap"><strong>Method Parameters</strong></td><td class="" id="V`AI">Passed to methods</td><td class="" id="WtPn">During method call</td></tr><tr id="235b255d-72ff-80e9-90d6-fb8a2b79f4ae"><td class="" id="`Hap"><strong>Constructor Params</strong></td><td class="" id="V`AI">Passed to constructor</td><td class="" id="WtPn">During object creation</td></tr></tbody></table><hr id="235b255d-72ff-8040-96b6-c658a26583ef"/><h2 class="" id="235b255d-72ff-8091-9be6-d9cbdf6bc5a8">🔷 7. <strong>Floating Point Representation (float/double)</strong></h2><ul class="bulleted-list" id="235b255d-72ff-80c5-b861-fb254f5882f7"><li style="list-style-type:disc">Stored using <strong>IEEE 754</strong> standard:<ul class="bulleted-list" id="235b255d-72ff-8036-81ec-cbd2802aacfb"><li style="list-style-type:circle"><strong>Float</strong>: 1 sign bit, 8 exponent bits, 23 mantissa bits</li></ul><ul class="bulleted-list" id="235b255d-72ff-80b8-8685-d59614cc7c45"><li style="list-style-type:circle"><strong>Double</strong>: 1 sign bit, 11 exponent bits, 52 mantissa bits</li></ul></li></ul><p class="" id="235b255d-72ff-80b9-ad93-d7d143131902">🧠 <strong>Why float != precise?</strong></p><ul class="bulleted-list" id="235b255d-72ff-806e-830e-eab582a3db77"><li style="list-style-type:disc">Decimal values like <code>0.7f</code> are <strong>not exactly representable</strong>, due to binary conversion. It leads to <strong>precision errors</strong>.</li></ul><ul class="bulleted-list" id="235b255d-72ff-8031-8853-e1ea1b2e6d36"><li style="list-style-type:disc">Use <strong>BigDecimal</strong> for financial calculations.</li></ul><hr id="235b255d-72ff-80ac-9a17-f764a2b425dd"/><h2 class="" id="235b255d-72ff-80c5-8727-c1e236280bfe">🔷 8. <strong>Binary Representation and Overflow</strong></h2><ul class="bulleted-list" id="235b255d-72ff-8051-91f1-c13148208787"><li style="list-style-type:disc">Two's Complement is used for signed values.</li></ul><ul class="bulleted-list" id="235b255d-72ff-8072-8bf8-cb80487229ef"><li style="list-style-type:disc">In case of overflow:</li></ul><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8091-9574-e3bebbb217e9"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">byte b = (byte) 130;  // becomes -126</code></pre><p class="" id="235b255d-72ff-806a-ae17-c8f44aa4b496">🧠 <strong>Interview Ask</strong>: Explain how signed overflow works and how Java handles it.</p><hr id="235b255d-72ff-8026-83af-cef8bfc9e600"/><h2 class="" id="235b255d-72ff-800f-9a26-fb4615b3c57d">🔷 Summary Table</h2><table class="simple-table" id="235b255d-72ff-8066-8c4e-c3ff6606f2ed"><thead class="simple-table-header"><tr id="235b255d-72ff-8081-b871-dd73081e10c9"><th class="simple-table-header-color simple-table-header" id="nf`_">Concept</th><th class="simple-table-header-color simple-table-header" id="hWPu">Notes</th></tr></thead><tbody><tr id="235b255d-72ff-8056-8b8e-daa31ece94ed"><td class="" id="nf`_">Implicit Conversion</td><td class="" id="hWPu">Widening (safe)</td></tr><tr id="235b255d-72ff-802e-8c95-dd6ce990e007"><td class="" id="nf`_">Explicit Conversion</td><td class="" id="hWPu">Narrowing (possible data loss)</td></tr><tr id="235b255d-72ff-80ad-b472-d31a16644495"><td class="" id="nf`_">Promotion in Expression</td><td class="" id="hWPu">byte/short → int</td></tr><tr id="235b255d-72ff-80a0-888a-f5c61cf5b024"><td class="" id="nf`_">char Size</td><td class="" id="hWPu">2 bytes (Unicode), not ASCII (1 byte)</td></tr><tr id="235b255d-72ff-8080-9a86-e02bf2e2877d"><td class="" id="nf`_">float vs double</td><td class="" id="hWPu">double is more precise and wider</td></tr></tbody></table><hr id="235b255d-72ff-8036-beb3-e975ea83f65d"/><h2 class="" id="235b255d-72ff-80bd-9cd9-ecdf05e02c5b">🧠 Common Interview Questions:</h2><ol class="numbered-list" id="235b255d-72ff-8063-a916-fd7f0c0303c3" start="1" type="1"><li>What is the default value of primitive types in Java?</li></ol><ol class="numbered-list" id="235b255d-72ff-8091-b12e-c1da87a53726" start="2" type="1"><li>What is the difference between float and double in memory representation?</li></ol><ol class="numbered-list" id="235b255d-72ff-8095-90c7-e6c2d1dfa98b" start="3" type="1"><li>How does narrowing conversion affect data?</li></ol><ol class="numbered-list" id="235b255d-72ff-8079-84cb-f136fe701988" start="4" type="1"><li>How many bytes does <code>char</code> occupy and why?</li></ol><ol class="numbered-list" id="235b255d-72ff-8051-acef-c3cd29cb1056" start="5" type="1"><li>What happens when byte overflow occurs?</li></ol></body></html>
