@@ -1,4 +1,4 @@
-<html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Java</title><style>
+<html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Java [Github]</title><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -677,51 +677,4 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><h1>Java Enum, POJO and Final Classes</h1><figure class="image" id="236b255d-72ff-806e-a65d-dca4d8dd09ea"><img src="..\Java Enum POJO and Final Classes\image.png"/></figure><figure class="image" id="236b255d-72ff-8057-a43b-e5b236f79341"><img src="..\Java Enum POJO and Final Classes\image 1.png"/></figure><figure class="image" id="236b255d-72ff-8082-8ce4-d76da2b67e4f"><img src="..\Java Enum POJO and Final Classes\image 2.png"/></figure><figure class="image" id="236b255d-72ff-8021-b49f-f0e13aba9237"><img src="..\Java Enum POJO and Final Classes\image 3.png"/></figure><figure class="image" id="236b255d-72ff-8059-b577-d8713bb0a039"><img src="..\Java Enum POJO and Final Classes\image 4.png"/></figure><figure class="image" id="236b255d-72ff-809e-8199-c1debb0a9b40"><img src="..\Java Enum POJO and Final Classes\image 5.png"/></figure><figure class="image" id="236b255d-72ff-807b-a311-d0946f2a30af"><img src="..\Java Enum POJO and Final Classes\image 6.png"/></figure><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="236b255d-72ff-800b-8cfc-eb4734f9fd73"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public class EnumExample {
-    public static void main(String[] args) {
-        EnumSample today = EnumSample.FRIDAY;
-
-        System.out.println(today);                         // FRIDAY
-        System.out.println(today.getVal());               // 105
-        System.out.println(today.getComment());           // 5th day of the week
-
-        EnumSample weekend = EnumSample.fromVal(106);
-        System.out.println(weekend);                       // SATURDAY
-        System.out.println(weekend.getComment());          // It's 1st WeekOff
-    }
-}
-
-enum EnumSample {
-    MONDAY(101, "1st day of the week"),
-    TUESDAY(102, "2nd day of the week"),
-    WEDNESDAY(103, "3rd day of the week"),
-    THURSDAY(104, "4th day of the week"),
-    FRIDAY(105, "5th day of the week"),
-    SATURDAY(106, "It's 1st WeekOff"),
-    SUNDAY(107, "It's 2nd WeekOff");
-
-    private final int val;
-    private final String comment;
-
-    EnumSample(int val, String comment) {
-        this.val = val;
-        this.comment = comment;
-    }
-
-    public int getVal() {
-        return val;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public static EnumSample fromVal(int val) {
-        for (EnumSample e : EnumSample.values()) {
-            if (e.getVal() == val) return e;
-        }
-        throw new IllegalArgumentException("Invalid value: " + val);
-    }
-}
-</code></pre><figure class="image" id="236b255d-72ff-806e-9471-ea7217ae5488"><img src="..\Java Enum POJO and Final Classes\image 7.png"/></figure><figure class="image" id="236b255d-72ff-80a0-b7ee-d9ad883ce6a6"><img src="..\Java Enum POJO and Final Classes\image 8.png"/></figure><figure class="image" id="236b255d-72ff-8031-b7ee-f54e2c638df7"><img src="..\Java Enum POJO and Final Classes\image 9.png"/></figure><figure class="image" id="236b255d-72ff-8012-86bc-da7f8be6692f"><img src="..\Java Enum POJO and Final Classes\image 10.png"/></figure><figure class="image" id="236b255d-72ff-807f-a77a-edb15d2a5bcf"><img src="..\Java Enum POJO and Final Classes\image 11.png"/></figure><figure class="image" id="236b255d-72ff-80f1-8bad-ce60f026aadc"><img src="..\Java Enum POJO and Final Classes\image 12.png"/></figure><figure class="image" id="236b255d-72ff-80ff-b076-f3088d9fb62a"><img src="..\Java Enum POJO and Final Classes\image 13.png"/></figure><figure class="image" id="236b255d-72ff-8005-87bf-ca531b1f5bbb"><img src="..\Java Enum POJO and Final Classes\image 14.png"/></figure><figure class="image" id="236b255d-72ff-80ba-be8c-c546a7f8c079"><img src="..\Java Enum POJO and Final Classes\image 15.png"/></figure><figure class="image" id="236b255d-72ff-80ac-967c-d82243710aaa"><img src="..\Java Enum POJO and Final Classes\image 16.png"/></figure><figure class="image" id="236b255d-72ff-80c1-90fd-c1b2be5464ab"><img src="..\Java Enum POJO and Final Classes\image 17.png"/></figure><figure class="image" id="236b255d-72ff-80f7-b5f1-d452df3155fc"><img src="..\Java Enum POJO and Final Classes\image 18.png"/></figure><figure class="image" id="236b255d-72ff-807e-aace-f893b6cfc7a0"><img src="..\Java Enum POJO and Final Classes\image 19.png"/></figure><figure class="image" id="236b255d-72ff-8067-bcd1-fa8199d3893c"><img src="..\Java Enum POJO and Final Classes\image 20.png"/></figure><figure class="image" id="236b255d-72ff-8098-ba78-ee023983289b"><img src="..\Java Enum POJO and Final Classes\image 21.png"/></figure><figure class="image" id="236b255d-72ff-80f6-b427-ce3d9b6b11e9"><img src="..\Java Enum POJO and Final Classes\image 22.png"/></figure><figure class="image" id="236b255d-72ff-8076-b4b4-cae35f6f3c04"><img src="..\Java Enum POJO and Final Classes\image 23.png"/></figure><figure class="image" id="236b255d-72ff-80f7-8cf3-eaea7125643c"><img src="..\Java Enum POJO and Final Classes\image 24.png"/></figure><p class="" id="236b255d-72ff-8043-80ca-fd4f43b4e7eb">
-</p></body></html>
+</style></head><body><h1><a href="https://drive.google.com/file/d/1hi2SFANgyDhPMSGeUgGxzv0PsHQycEQU/view?usp=drive_link">Java Enum, POJO and Final Classes + Java Singleton and Immutable Class</a></h1></body></html>

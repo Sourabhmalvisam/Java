@@ -1,4 +1,4 @@
-<html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Java</title><style>
+<html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Java [Github]</title><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -677,143 +677,90 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><h1>Lombok</h1><h2 class="" id="235b255d-72ff-80b1-a2c1-d00569546880">✅ What is Lombok?</h2><p class="" id="235b255d-72ff-80e6-861f-ffe869858732"><strong>Project Lombok</strong> is a Java library that reduces <strong>boilerplate code</strong> using <strong>annotations</strong> like <code>@Getter</code>, <code>@Setter</code>, <code>@Builder</code>, etc.</p><p class="" id="235b255d-72ff-80d6-b826-f5fe0ce3c671">It injects code into compiled <code>.class</code> files using <strong>annotation processing</strong>, so code looks minimal in source but complete after compilation.</p><hr id="235b255d-72ff-803e-aa74-f04301cf5a11"/><h3 class="" id="235b255d-72ff-80c9-8c03-e2ffc12569ae">💡 Why IntelliJ shows errors sometimes?</h3><p class="" id="235b255d-72ff-80ee-a2cc-ef2403f87fb2">Lombok-generated methods aren't visible to the IDE unless:</p><ol class="numbered-list" id="235b255d-72ff-806f-89ac-eb86093a93e6" start="1" type="1"><li>Lombok <strong>plugin is installed</strong></li></ol><ol class="numbered-list" id="235b255d-72ff-8016-a882-dcb2261da764" start="2" type="1"><li><strong>Annotation processing is enabled</strong></li></ol><p class="" id="235b255d-72ff-8093-bd52-d7d5f3391559">Without this, your IDE will show red error squiggles even if the code <strong>compiles and runs fine</strong>.</p><hr id="235b255d-72ff-8078-a02e-dd6823941203"/><h3 class="" id="235b255d-72ff-80cc-8aa8-f5d67508f247">⚙️ Required Setup</h3><p class="" id="235b255d-72ff-8016-a5d0-c584b6cc5ff8"><strong>In </strong><code><strong>pom.xml</strong></code><strong>:</strong></p><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-80e5-bf51-e8d4bbee7690"><code class="language-XML" style="white-space:pre-wrap;word-break:break-all">&lt;dependency&gt;
-  &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
-  &lt;artifactId&gt;lombok&lt;/artifactId&gt;
-  &lt;version&gt;1.18.30&lt;/version&gt; &lt;!-- Use latest --&gt;
-  &lt;scope&gt;provided&lt;/scope&gt;
-&lt;/dependency&gt;</code></pre><p class="" id="235b255d-72ff-8049-ab99-ccc14d17e2bd"><strong>IDE Setup (IntelliJ):</strong></p><ul class="bulleted-list" id="235b255d-72ff-80e9-900c-dc648ef37f61"><li style="list-style-type:disc">Install <strong>Lombok Plugin</strong></li></ul><ul class="bulleted-list" id="235b255d-72ff-80a7-b656-c7a0e22a0531"><li style="list-style-type:disc">Enable <code>Annotation Processing</code> in Preferences → Build Tools → Compiler → Annotation Processors</li></ul><hr id="235b255d-72ff-80d8-b757-c3e8e59e3175"/><h2 class="" id="235b255d-72ff-80b3-8e7f-d3de18f693a9">🔟 10 Most Frequently Used Lombok Features</h2><hr id="235b255d-72ff-806d-b1a0-c787a1a3bb04"/><h3 class="" id="235b255d-72ff-80df-bc6f-d06302cfa90f">1️⃣ <code>val</code> and <code>var</code> – Local Variable Inference</h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-80e7-a4dd-c7c470f5390a"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import lombok.val;
-import lombok.var;
+</style></head><body><h1><a href="https://drive.google.com/file/d/11VYn4uKiNE1Vtxd-6TeITdPagLrw5OB2/view?usp=sharing">SequencedCollection, SequencedSet, SequencedMap</a></h1><h1 class="" id="235b255d-72ff-809d-8b2b-d8066f743d16">🚀 Java 21 – SequencedCollection, SequencedSet, SequencedMap</h1><hr id="235b255d-72ff-80d3-ad50-f088854fd3bf"/><h3 class="" id="235b255d-72ff-806a-b697-c6a0435222e4">✅ Why Were These Interfaces Introduced?</h3><p class="" id="235b255d-72ff-80fa-96c9-de588f527091">Before Java 21:</p><ul class="bulleted-list" id="235b255d-72ff-8086-9894-ebeb4b88a611"><li style="list-style-type:disc">Collections like <code>List</code>, <code>Deque</code>, <code>LinkedHashMap</code>, <code>TreeSet</code> had <strong>predictable iteration order</strong></li></ul><ul class="bulleted-list" id="235b255d-72ff-80d1-94c9-d7dda7f7ab84"><li style="list-style-type:disc">BUT no <strong>common interface</strong> for:<ul class="bulleted-list" id="235b255d-72ff-80b8-a174-fca9bdde7726"><li style="list-style-type:circle"><code>getFirst()</code>, <code>getLast()</code></li></ul><ul class="bulleted-list" id="235b255d-72ff-8014-bf1c-debac7c527f4"><li style="list-style-type:circle"><code>addFirst()</code>, <code>addLast()</code></li></ul><ul class="bulleted-list" id="235b255d-72ff-80aa-9155-f356e577c86a"><li style="list-style-type:circle"><code>removeFirst()</code>, <code>removeLast()</code></li></ul><ul class="bulleted-list" id="235b255d-72ff-8098-8b1c-d0533eef787d"><li style="list-style-type:circle"><code>reversed()</code> view</li></ul></li></ul><p class="" id="235b255d-72ff-807e-a7c6-e2c1b1b3748e">➡️ <strong>Java 21</strong> introduced:</p><ul class="bulleted-list" id="235b255d-72ff-8044-b313-e6c4fea799f6"><li style="list-style-type:disc"><code>SequencedCollection</code></li></ul><ul class="bulleted-list" id="235b255d-72ff-8048-a5f4-de01f0bea438"><li style="list-style-type:disc"><code>SequencedSet</code></li></ul><ul class="bulleted-list" id="235b255d-72ff-800b-b096-f88f3042c1fc"><li style="list-style-type:disc"><code>SequencedMap</code></li></ul><blockquote class="" id="235b255d-72ff-8033-98c6-e0e3724ec8b3">To unify and standardize bidirectional access, reversibility, and head/tail manipulation.</blockquote><hr id="235b255d-72ff-80e5-bf98-cbfb7a78b7eb"/><h2 class="" id="235b255d-72ff-803f-ae07-d71ace374e50">✅ 1. <code>SequencedCollection&lt;E&gt;</code></h2><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8048-b985-cf591d06be4d"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public interface SequencedCollection&lt;E&gt; extends Collection&lt;E&gt; {
+    void addFirst(E e);
+    void addLast(E e);
+    E getFirst();
+    E getLast();
+    E removeFirst();
+    E removeLast();
+    SequencedCollection&lt;E&gt; reversed();
+}</code></pre><hr id="235b255d-72ff-80f9-acee-c497d29b5b22"/><h3 class="" id="235b255d-72ff-8061-b9f2-e1d76f155f72">🔁 Example – <code>Deque</code> as <code>SequencedCollection</code></h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-80e4-8dd5-ca6ef13f243d"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import java.util.*;
 
-public class ValVarExample {
+public class SequencedCollectionDemo {
     public static void main(String[] args) {
-        val name = "Ganesh"; // final String
-        var age = 25;         // int
+        SequencedCollection&lt;String&gt; deque = new ArrayDeque&lt;&gt;(List.of("B", "C", "D"));
 
-        // name = "Another"; ❌ Error (final)
-        age = 26;              // ✅ Allowed
-        System.out.println(name + ", age " + age);
+        deque.addFirst("A"); // A, B, C, D
+        deque.addLast("Z");  // A, B, C, D, Z
+
+        System.out.println(deque.getFirst()); // A
+        System.out.println(deque.getLast());  // Z
+
+        deque.removeFirst(); // B, C, D, Z
+        deque.removeLast();  // B, C, D
+
+        for (String s : deque.reversed()) {
+            System.out.print(s + " "); // D C B
+        }
     }
-}</code></pre><blockquote class="" id="235b255d-72ff-8000-8aca-e2e4cd503db8">✅ Only works for local variables, not fields or method params.</blockquote><hr id="235b255d-72ff-8046-bf5c-ed107acac47b"/><h3 class="" id="235b255d-72ff-80aa-a0d8-cf108f995b34">2️⃣ <code>@NonNull</code> – Auto Null Check</h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-80ab-a6cf-f96c2b1570c4"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import lombok.NonNull;
+}</code></pre><hr id="235b255d-72ff-80b7-9255-c0aa57c1f3fb"/><h2 class="" id="235b255d-72ff-8078-b422-d7c70e7ef3ab">✅ 2. <code>SequencedSet&lt;E&gt;</code></h2><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-80fb-ac70-d0fcd4fc35d1"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public interface SequencedSet&lt;E&gt; extends Set&lt;E&gt;, SequencedCollection&lt;E&gt; {
+    SequencedSet&lt;E&gt; reversed();
+}</code></pre><ul class="bulleted-list" id="235b255d-72ff-80c6-bca6-f2cbe1602224"><li style="list-style-type:disc">Adds <strong>Set semantics</strong> (no duplicates) to <code>SequencedCollection</code></li></ul><ul class="bulleted-list" id="235b255d-72ff-80f8-83e6-fe38dfa80855"><li style="list-style-type:disc">Implemented by:<ul class="bulleted-list" id="235b255d-72ff-807f-a464-f1207cd7fd32"><li style="list-style-type:circle"><code>LinkedHashSet</code></li></ul><ul class="bulleted-list" id="235b255d-72ff-8074-92c0-cbb50a22a4f9"><li style="list-style-type:circle"><code>TreeSet</code></li></ul></li></ul><hr id="235b255d-72ff-8052-bd50-c54946cf07de"/><h3 class="" id="235b255d-72ff-8064-abd7-da8ec1b64d91">🔁 Example – <code>LinkedHashSet</code> as <code>SequencedSet</code></h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8096-b08b-f364d069009b"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import java.util.*;
 
-public class NonNullExample {
-    public void setName(@NonNull String name) {
-        System.out.println("Hello " + name);
-    }
-
+public class SequencedSetDemo {
     public static void main(String[] args) {
-        new NonNullExample().setName(null); // 💥 Throws NullPointerException
+        SequencedSet&lt;String&gt; set = new LinkedHashSet&lt;&gt;(List.of("B", "C", "D"));
+
+        set.addFirst("A"); // A, B, C, D
+        set.addLast("Z");  // A, B, C, D, Z
+
+        System.out.println(set.getFirst()); // A
+        System.out.println(set.getLast());  // Z
+
+        set.removeFirst(); // B, C, D, Z
+        set.removeLast();  // B, C, D
+
+        System.out.println("Reverse:");
+        for (String s : set.reversed()) {
+            System.out.print(s + " "); // D C B
+        }
     }
-}</code></pre><hr id="235b255d-72ff-8048-891e-d7c6f4984618"/><h3 class="" id="235b255d-72ff-8045-85fa-cb3ffc07d6ef">3️⃣ <code>@Getter</code> and <code>@Setter</code></h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8082-a211-fa057085c02c"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import lombok.Getter;
-import lombok.Setter;
+}</code></pre><blockquote class="" id="235b255d-72ff-8039-9854-faeedb06961d">💡 In case of duplicate insertions (set.addFirst("C")), it moves the element to new position.</blockquote><hr id="235b255d-72ff-8020-b9e8-f3b007b69265"/><h2 class="" id="235b255d-72ff-8068-9112-d7f4facd1ab9">✅ 3. <code>SequencedMap&lt;K, V&gt;</code></h2><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-80c2-9771-cbaf19957c3c"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public interface SequencedMap&lt;K,V&gt; extends Map&lt;K,V&gt; {
+    Map.Entry&lt;K,V&gt; firstEntry();
+    Map.Entry&lt;K,V&gt; lastEntry();
+    Map.Entry&lt;K,V&gt; pollFirstEntry();
+    Map.Entry&lt;K,V&gt; pollLastEntry();
 
-public class GetterSetterExample {
-    @Getter @Setter
-    private String name;
+    V putFirst(K key, V value);
+    V putLast(K key, V value);
 
+    SequencedSet&lt;K&gt; sequencedKeySet();
+    SequencedCollection&lt;V&gt; sequencedValues();
+    SequencedSet&lt;Map.Entry&lt;K,V&gt;&gt; sequencedEntrySet();
+
+    SequencedMap&lt;K,V&gt; reversed();
+}</code></pre><ul class="bulleted-list" id="235b255d-72ff-8023-87e4-f9ec4850cbce"><li style="list-style-type:disc">Implemented by:<ul class="bulleted-list" id="235b255d-72ff-8087-8e67-e4d53207bebc"><li style="list-style-type:circle"><code>LinkedHashMap</code></li></ul><ul class="bulleted-list" id="235b255d-72ff-8055-97af-cfcf23813bbe"><li style="list-style-type:circle"><code>TreeMap</code></li></ul></li></ul><hr id="235b255d-72ff-802b-a707-ef52fb7ad65e"/><h3 class="" id="235b255d-72ff-80e2-be1a-e35de06b02c7">🔁 Example – <code>LinkedHashMap</code> as <code>SequencedMap</code></h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8076-9fd1-efbf1fd6ccb8"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import java.util.*;
+
+public class SequencedMapDemo {
     public static void main(String[] args) {
-        GetterSetterExample obj = new GetterSetterExample();
-        obj.setName("Ganesh");
-        System.out.println(obj.getName());
+        SequencedMap&lt;Integer, String&gt; map = new LinkedHashMap&lt;&gt;();
+        map.put(100, "B");
+        map.put(200, "C");
+        map.put(300, "D");
+
+        map.putFirst(50, "A");  // A, B, C, D
+        map.putLast(400, "Z");  // A, B, C, D, Z
+
+        System.out.println(map.firstEntry());  // 50=A
+        System.out.println(map.lastEntry());   // 400=Z
+
+        map.pollFirstEntry(); // remove 50=A
+        map.pollLastEntry();  // remove 400=Z
+
+        System.out.println("Reversed:");
+        for (Map.Entry&lt;Integer, String&gt; entry : map.reversed().entrySet()) {
+            System.out.println(entry); // D C B
+        }
     }
-}</code></pre><blockquote class="" id="235b255d-72ff-80e3-8d91-f1c928111cbd">📌 Can also be used at class level.</blockquote><hr id="235b255d-72ff-8019-b569-efbc882d6f82"/><h3 class="" id="235b255d-72ff-8008-9cbd-dcedc1ab67a4">4️⃣ Class-Level Getter/Setter</h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8065-88e2-de542c978432"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import lombok.Getter;
-import lombok.Setter;
-import lombok.AccessLevel;
-
-@Getter
-@Setter
-public class User {
-    private String name;
-    private int age;
-
-    @Setter(AccessLevel.NONE)
-    private String role = "admin"; // ❌ No setter generated
-
-    public static void main(String[] args) {
-        User u = new User();
-        u.setName("Ganesh");
-        u.setAge(30);
-        System.out.println(u.getName() + ", age: " + u.getAge());
-    }
-}</code></pre><hr id="235b255d-72ff-80b8-b778-f2b2b96a2795"/><h3 class="" id="235b255d-72ff-80fe-bcfb-cae092dc448a">5️⃣ <code>@ToString</code></h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-80f8-a888-d1f3a82139c3"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import lombok.ToString;
-
-@ToString
-public class ToStringExample {
-    private String name = "Ganesh";
-    private int age = 30;
-
-    public static void main(String[] args) {
-        System.out.println(new ToStringExample()); // ToStringExample(name=Ganesh, age=30)
-    }
-}</code></pre><blockquote class="" id="235b255d-72ff-80a6-8246-e4af35c824ed">Can exclude fields via @ToString(exclude = "fieldName")</blockquote><hr id="235b255d-72ff-805c-83c5-cab4253e93b4"/><h3 class="" id="235b255d-72ff-80d4-9301-cd397c6d03a7">6️⃣ <code>@NoArgsConstructor</code>, <code>@AllArgsConstructor</code>, <code>@RequiredArgsConstructor</code></h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8057-b155-fccf02e10311"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import lombok.*;
-
-@RequiredArgsConstructor
-@AllArgsConstructor
-@NoArgsConstructor
-public class ConstructorExample {
-    @NonNull private String name;
-    private int age;
-
-    public static void main(String[] args) {
-        ConstructorExample c1 = new ConstructorExample("Ganesh");
-        ConstructorExample c2 = new ConstructorExample("Ganesh", 28);
-        ConstructorExample c3 = new ConstructorExample();
-    }
-}</code></pre><hr id="235b255d-72ff-8000-9c47-c1a30563f615"/><h3 class="" id="235b255d-72ff-80e5-90ee-d54b1f21520e">7️⃣ <code>@EqualsAndHashCode</code></h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-80c9-9ee7-cd9846883c68"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import lombok.EqualsAndHashCode;
-
-@EqualsAndHashCode
-public class EqualsHashExample {
-    private String name = "Ganesh";
-    private int id = 101;
-
-    public static void main(String[] args) {
-        EqualsHashExample e1 = new EqualsHashExample();
-        EqualsHashExample e2 = new EqualsHashExample();
-        System.out.println(e1.equals(e2)); // true
-    }
-}</code></pre><blockquote class="" id="235b255d-72ff-80a0-8027-db1553dcba3d">Uses all non-static and non-transient fields by default.</blockquote><hr id="235b255d-72ff-804f-8d6f-c21d73f20e4c"/><h3 class="" id="235b255d-72ff-809c-a1b5-f7f4b7a665e1">8️⃣ <code>@Data</code> – All-in-One (DTO Booster)</h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-80dc-b2c3-dad0ec9cd00b"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import lombok.Data;
-
-@Data
-public class Employee {
-    private final String name;
-    private int salary;
-
-    public static void main(String[] args) {
-        Employee e = new Employee("Ganesh");
-        e.setSalary(50000);
-        System.out.println(e);
-    }
-}</code></pre><blockquote class="" id="235b255d-72ff-80d6-8e39-cd30a9948dee">Includes: @ToString, @EqualsAndHashCode, @Getter, @Setter, @RequiredArgsConstructor</blockquote><hr id="235b255d-72ff-8049-a6b7-f31c235a4676"/><h3 class="" id="235b255d-72ff-8068-a668-e5d83a1a4ad4">9️⃣ <code>@Value</code> – Immutable Data Class</h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8088-9e30-d0405fc5cacb"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import lombok.Value;
-
-@Value
-public class ImmutablePerson {
-    String name;
-    int age;
-
-    public static void main(String[] args) {
-        ImmutablePerson p = new ImmutablePerson("Ganesh", 29);
-        System.out.println(p); // ImmutablePerson(name=Ganesh, age=29)
-    }
-}</code></pre><blockquote class="" id="235b255d-72ff-80fc-bebf-e6c1206875fe">Immutable, final fields, no setters, class is final.</blockquote><hr id="235b255d-72ff-8028-ba10-fa33ac66a49d"/><h3 class="" id="235b255d-72ff-80f5-9dce-d788d7aa06cf">🔟 <code>@Builder</code> – Fluent Object Construction (Builder Pattern)</h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8033-926a-e128c336eaab"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import lombok.Builder;
-
-@Builder
-public class Car {
-    private String model;
-    private int year;
-
-    public static void main(String[] args) {
-        Car c = Car.builder()
-                   .model("Tesla")
-                   .year(2024)
-                   .build();
-        System.out.println(c);
-    }
-}</code></pre><blockquote class="" id="235b255d-72ff-80ac-a597-d1a13e0d145f">Excellent for constructing complex objects.</blockquote><hr id="235b255d-72ff-8031-9e5e-e163552075c8"/><h3 class="" id="235b255d-72ff-80c2-a373-d8b90581aa0c">🔁 <code>@Cleanup</code> – Auto-close Resources (Like try-with-resources)</h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code code-wrap" id="235b255d-72ff-8015-86aa-ffb6360bd5cd"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import lombok.Cleanup;
-import java.io.*;
-
-public class CleanupExample {
-    public static void main(String[] args) throws Exception {
-        @Cleanup FileWriter writer = new FileWriter("test.txt");
-        writer.write("Hello, Lombok!");
-    }
-}</code></pre><hr id="235b255d-72ff-8071-8702-d29e41cad6b4"/><h2 class="" id="235b255d-72ff-8009-94ac-ce20b54aa20d">🧠 Interview Insights</h2><table class="simple-table" id="235b255d-72ff-80de-bdf2-db2db965e571"><thead class="simple-table-header"><tr id="235b255d-72ff-8032-a58c-df0700fa2f6e"><th class="simple-table-header-color simple-table-header" id="YGIi">Question</th><th class="simple-table-header-color simple-table-header" id="&gt;q:}">Insight</th></tr></thead><tbody><tr id="235b255d-72ff-80d8-a1f6-e431e470e3ca"><td class="" id="YGIi">Why does Lombok need a plugin?</td><td class="" id="&gt;q:}">IDEs don’t run annotation processors by default.</td></tr><tr id="235b255d-72ff-802f-88b3-f721f37d2e2c"><td class="" id="YGIi">Is Lombok runtime or compile-time?</td><td class="" id="&gt;q:}">Compile-time (injected into <code>.class</code> files).</td></tr><tr id="235b255d-72ff-80a1-9393-f7983fd088a1"><td class="" id="YGIi">Does it impact performance?</td><td class="" id="&gt;q:}">No runtime impact, just cleaner code.</td></tr><tr id="235b255d-72ff-80a2-b022-e9d86162f67a"><td class="" id="YGIi">Can it be disabled easily?</td><td class="" id="&gt;q:}">Yes, just remove dependency or disable processing.</td></tr></tbody></table><hr id="235b255d-72ff-809b-8bfd-f0efc3637528"/><h2 class="" id="235b255d-72ff-8010-ae05-c5096aeba700">❌ Risks &amp; Caveats</h2><table class="simple-table" id="235b255d-72ff-8085-a96f-f18aad2d28f9"><thead class="simple-table-header"><tr id="235b255d-72ff-8085-afe4-d535883167af"><th class="simple-table-header-color simple-table-header" id="vZpm">Issue</th><th class="simple-table-header-color simple-table-header" id="WDen">Details</th></tr></thead><tbody><tr id="235b255d-72ff-803a-baa9-d12abb9aa7fc"><td class="" id="vZpm">Debugging</td><td class="" id="WDen">Generated code isn't visible in IDE</td></tr><tr id="235b255d-72ff-8033-8a49-f4e20d50a809"><td class="" id="vZpm">Portability</td><td class="" id="WDen">Can create confusion for non-Lombok users</td></tr><tr id="235b255d-72ff-8074-9834-f901c4237936"><td class="" id="vZpm">IDE Warnings</td><td class="" id="WDen">Missing plugin causes false errors</td></tr><tr id="235b255d-72ff-8071-b46c-cb84503ccdfe"><td class="" id="vZpm">Overuse</td><td class="" id="WDen">Overusing <code>@Data</code> can lead to unintentional bugs</td></tr></tbody></table><hr id="235b255d-72ff-804f-aaef-e800350ecb13"/><h2 class="" id="235b255d-72ff-8024-a31f-e22c5aa73034">✅ Summary</h2><table class="simple-table" id="235b255d-72ff-80f6-ae87-fd2c9f12f34c"><thead class="simple-table-header"><tr id="235b255d-72ff-8057-8e24-fe323885e136"><th class="simple-table-header-color simple-table-header" id="bZfL">Feature</th><th class="simple-table-header-color simple-table-header" id="JKW_">Description</th></tr></thead><tbody><tr id="235b255d-72ff-8004-b0ec-edbaaceca757"><td class="" id="bZfL"><code>@Getter/@Setter</code></td><td class="" id="JKW_">Generates accessor methods</td></tr><tr id="235b255d-72ff-80ae-9b0b-e63a55f7c6b1"><td class="" id="bZfL"><code>@ToString</code></td><td class="" id="JKW_">Auto generates <code>toString()</code></td></tr><tr id="235b255d-72ff-80e7-af90-de2669624473"><td class="" id="bZfL"><code>@Data</code></td><td class="" id="JKW_">Combines multiple annotations</td></tr><tr id="235b255d-72ff-8083-9208-c009dd5818d2"><td class="" id="bZfL"><code>@Builder</code></td><td class="" id="JKW_">Fluent object builder</td></tr><tr id="235b255d-72ff-809b-8849-f814fcec9e22"><td class="" id="bZfL"><code>@Value</code></td><td class="" id="JKW_">Immutable data class</td></tr><tr id="235b255d-72ff-80a5-ab47-c4bc207b3561"><td class="" id="bZfL"><code>@Cleanup</code></td><td class="" id="JKW_">Closes resources</td></tr></tbody></table></body></html>
+}</code></pre><hr id="235b255d-72ff-8014-878b-c7ecd2d897e9"/><h3 class="" id="235b255d-72ff-8011-aed4-f75073ddcc68">🧠 Conceptual Difference</h3><table class="simple-table" id="235b255d-72ff-8021-9b2e-f84a82f43b5d"><thead class="simple-table-header"><tr id="235b255d-72ff-80f4-b00e-ebab1a66b7a6"><th class="simple-table-header-color simple-table-header" id="EoQY">Interface</th><th class="simple-table-header-color simple-table-header" id="D`Xs">Purpose</th></tr></thead><tbody><tr id="235b255d-72ff-800b-a30c-cd965981c353"><td class="" id="EoQY"><code>SequencedCollection</code></td><td class="" id="D`Xs">Ordered collections with head/tail and reverse</td></tr><tr id="235b255d-72ff-8073-b94e-c98f448182a3"><td class="" id="EoQY"><code>SequencedSet</code></td><td class="" id="D`Xs">Same + unique elements</td></tr><tr id="235b255d-72ff-80c6-b3ef-c43a904104da"><td class="" id="EoQY"><code>SequencedMap</code></td><td class="" id="D`Xs">Ordered key-value pairs with full sequencing</td></tr></tbody></table><hr id="235b255d-72ff-8084-aa04-e6de5f3ea89a"/><h3 class="" id="235b255d-72ff-8000-ad01-c794443e1a69">🧪 Which Collections Support Them?</h3><table class="simple-table" id="235b255d-72ff-807c-8fcb-ce7bfa65ebe5"><thead class="simple-table-header"><tr id="235b255d-72ff-808b-a2ff-f33aba5e2f2d"><th class="simple-table-header-color simple-table-header" id="|Mau">Collection Type</th><th class="simple-table-header-color simple-table-header" id="j@ws">Interface</th><th class="simple-table-header-color simple-table-header" id="jKc;">Supports?</th></tr></thead><tbody><tr id="235b255d-72ff-808b-8f08-fa0ac6d6ed65"><td class="" id="|Mau"><code>ArrayDeque</code></td><td class="" id="j@ws"><code>SequencedCollection</code></td><td class="" id="jKc;">✅</td></tr><tr id="235b255d-72ff-80a6-a9f8-c4050f8f7b5a"><td class="" id="|Mau"><code>LinkedHashSet</code></td><td class="" id="j@ws"><code>SequencedSet</code></td><td class="" id="jKc;">✅</td></tr><tr id="235b255d-72ff-803b-9757-e51293e67dd4"><td class="" id="|Mau"><code>TreeSet</code></td><td class="" id="j@ws"><code>SequencedSet</code></td><td class="" id="jKc;">✅ (Sorted Order)</td></tr><tr id="235b255d-72ff-80d9-8ce3-cca72b44585d"><td class="" id="|Mau"><code>LinkedHashMap</code></td><td class="" id="j@ws"><code>SequencedMap</code></td><td class="" id="jKc;">✅</td></tr><tr id="235b255d-72ff-8045-b438-ed1bb24e71fd"><td class="" id="|Mau"><code>TreeMap</code></td><td class="" id="j@ws"><code>SequencedMap</code></td><td class="" id="jKc;">✅</td></tr><tr id="235b255d-72ff-80dc-a38d-de9c0f9684bf"><td class="" id="|Mau"><code>PriorityQueue</code></td><td class="" id="j@ws">❌</td><td class="" id="jKc;">❌ (No predictable iteration)</td></tr><tr id="235b255d-72ff-8053-a65a-d4fe47f079ed"><td class="" id="|Mau"><code>HashMap</code> / <code>HashSet</code></td><td class="" id="j@ws">❌</td><td class="" id="jKc;">❌ (No order guarantee)</td></tr></tbody></table><hr id="235b255d-72ff-8046-a82d-d6cdf5f855a0"/><h2 class="" id="235b255d-72ff-809c-ac38-efa14a92c635">❓ Why Not Queue / PriorityQueue?</h2><ul class="bulleted-list" id="235b255d-72ff-80d2-9021-fa0ce1779b41"><li style="list-style-type:disc"><code>Queue</code> does not expose <code>getLast()</code> or <code>addFirst()</code> → Partial support</li></ul><ul class="bulleted-list" id="235b255d-72ff-8066-bcb9-e29fba8e66c7"><li style="list-style-type:disc"><code>PriorityQueue</code> uses heap → <strong>does not guarantee iteration order</strong><ul class="bulleted-list" id="235b255d-72ff-8054-84df-c0792ed6fc27"><li style="list-style-type:circle">So cannot fit into <code>SequencedCollection</code></li></ul></li></ul><hr id="235b255d-72ff-8065-8276-c546433ae868"/><h2 class="" id="235b255d-72ff-80b4-89f0-ced30299ce4f">❓ Why Separate <code>SequencedSet</code>?</h2><ul class="bulleted-list" id="235b255d-72ff-8013-b846-c18c2074d88e"><li style="list-style-type:disc"><code>Set</code> adds <strong>no-duplicate contract</strong></li></ul><ul class="bulleted-list" id="235b255d-72ff-8034-a3df-da9d2059aa6d"><li style="list-style-type:disc"><code>SequencedSet</code> ensures both:<ul class="bulleted-list" id="235b255d-72ff-8039-94f3-daede46e9a09"><li style="list-style-type:circle">Order-based access</li></ul><ul class="bulleted-list" id="235b255d-72ff-802d-b70e-d030bab53062"><li style="list-style-type:circle">No duplicate elements</li></ul></li></ul><hr id="235b255d-72ff-802c-b316-c0524fa60ebe"/><h2 class="" id="235b255d-72ff-801c-abaa-f5237ffef3c0">✅ Java 21 Methods Summary</h2><table class="simple-table" id="235b255d-72ff-802b-a37c-d79fc5a6c560"><thead class="simple-table-header"><tr id="235b255d-72ff-80e1-a3fc-e30856b676ce"><th class="simple-table-header-color simple-table-header" id="KYwP">Method</th><th class="simple-table-header-color simple-table-header" id="&lt;gmP">Description</th></tr></thead><tbody><tr id="235b255d-72ff-80c7-8318-e36c1fabe7ab"><td class="" id="KYwP"><code>addFirst(e)</code></td><td class="" id="&lt;gmP">Adds at beginning</td></tr><tr id="235b255d-72ff-805e-a280-fab61dbb60f8"><td class="" id="KYwP"><code>addLast(e)</code></td><td class="" id="&lt;gmP">Adds at end</td></tr><tr id="235b255d-72ff-80b0-802c-de8577df7a0f"><td class="" id="KYwP"><code>getFirst()</code></td><td class="" id="&lt;gmP">Get first element</td></tr><tr id="235b255d-72ff-80e2-803f-dabfc8108bd4"><td class="" id="KYwP"><code>getLast()</code></td><td class="" id="&lt;gmP">Get last element</td></tr><tr id="235b255d-72ff-80f7-854a-d40786e49ff1"><td class="" id="KYwP"><code>removeFirst()</code></td><td class="" id="&lt;gmP">Remove first element</td></tr><tr id="235b255d-72ff-8036-b1b4-d5666ea3fe29"><td class="" id="KYwP"><code>removeLast()</code></td><td class="" id="&lt;gmP">Remove last element</td></tr><tr id="235b255d-72ff-800d-8384-c800ea5fb81c"><td class="" id="KYwP"><code>reversed()</code></td><td class="" id="&lt;gmP">View in reverse order</td></tr><tr id="235b255d-72ff-801e-910f-f309e121fc06"><td class="" id="KYwP"><code>putFirst(k,v)</code></td><td class="" id="&lt;gmP">Insert first entry (map)</td></tr><tr id="235b255d-72ff-8067-b59d-c150780faeeb"><td class="" id="KYwP"><code>pollFirstEntry()</code></td><td class="" id="&lt;gmP">Remove &amp; return first map entry</td></tr></tbody></table><hr id="235b255d-72ff-805e-b1bf-f7ca18a11afb"/><h2 class="" id="235b255d-72ff-8026-a13c-cd834000f81b">📌 Interview Cracker Tips</h2><ul class="bulleted-list" id="235b255d-72ff-809d-82e8-c5fd52177051"><li style="list-style-type:disc">🔥 <strong>"Why was this added in Java 21?"</strong> → Standardizes common pattern across collections</li></ul><ul class="bulleted-list" id="235b255d-72ff-8051-8db6-f725a0f3e10d"><li style="list-style-type:disc">✍️ Know the <strong>differences</strong> between Sequenced vs Deque vs Navigable</li></ul><ul class="bulleted-list" id="235b255d-72ff-807f-a078-fcf5ccd717ab"><li style="list-style-type:disc">🎯 "Is <code>PriorityQueue</code> sequenced?" → <strong>No</strong>, iteration is not ordered</li></ul><ul class="bulleted-list" id="235b255d-72ff-8062-8044-c9ca41dc0014"><li style="list-style-type:disc">⚠️ <code>putFirst()</code> / <code>addFirst()</code> throw <code>UnsupportedOperationException</code> in <code>TreeMap</code>, <code>TreeSet</code></li></ul></body></html>
